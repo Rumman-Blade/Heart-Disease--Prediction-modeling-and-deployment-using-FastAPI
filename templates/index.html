@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form id="predictionForm" action="/predict" method="post">
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>BMI</td>
+                <td><input type="number" name="bmi" step="0.001" required></td>
+            </tr>
+            <tr>
+                <td>Smoking</td>
+                <td>
+                    <select name="smoking" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alcohol Drinking</td>
+                <td>
+                    <select name="alcohol_drinking" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Stroke</td>
+                <td>
+                    <select name="stroke" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Physical Health</td>
+                <td><input type="number" name="physical_health" step="0.001" required></td>
+            </tr>
+            <tr>
+                <td>Mental Health</td>
+                <td><input type="number" name="mental_health" step="0.001" required></td>
+            </tr>
+            <tr>
+                <td>Difficulty Walking</td>
+                <td>
+                    <select name="diff_walking" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Sex</td>
+                <td>
+                    <select name="sex" required>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Age Category</td>
+                <td><input type="number" name="age_category" required></td>
+            </tr>
+            <tr>
+                <td>Race</td>
+                <td>
+                    <select name="race" required>
+                        <option value="0">Race 0</option>
+                        <option value="1">Race 1</option>
+                        <option value="2">Race 2</option>
+                        <option value="3">Race 3</option>
+                        <option value="4">Race 4</option>
+                        <option value="5">Race 5</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Diabetic</td>
+                <td>
+                    <select name="diabetic" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes, type 1</option>
+                        <option value="2">Yes, type 2</option>
+                        <option value="3">Yes, other type</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Physical Activity</td>
+                <td>
+                    <select name="physical_activity" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>General Health</td>
+                <td>
+                    <select name="gen_health" required>
+                        <option value="0">Poor</option>
+                        <option value="1">Fair</option>
+                        <option value="2">Good</option>
+                        <option value="3">Very Good</option>
+                        <option value="4">Excellent</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Sleep Time</td>
+                <td><input type="number" name="sleep_time" required></td>
+            </tr>
+            <tr>
+                <td>Asthma</td>
+                <td>
+                    <select name="asthma" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Kidney Disease</td>
+                <td>
+                    <select name="kidney_disease" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Skin Cancer</td>
+                <td>
+                    <select name="skin_cancer" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <h2>Prediction Result:</h2>
+    <p>{{ prediction_text }}</p>
+</body>
+</html>
